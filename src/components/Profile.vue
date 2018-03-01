@@ -9,17 +9,17 @@
 <script>
 export default {
   name: 'Profile',
-  data () {
+  data() {
     return {
       name: 'Road Runner',
       imagePath: '/static/images/road-runner.jpg'
-    }
+    };
   }
-}
+};
 </script>
 
 <style scoped>
- img {
-     max-width: 500px;
- }
+img {
+  max-width: 500px;
+}
 </style>

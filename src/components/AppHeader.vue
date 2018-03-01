@@ -12,7 +12,7 @@
 <script>
 export default {
   name: 'AppHeader'
-}
+};
 </script>
 
 <style scoped>
@@ -24,20 +24,20 @@ nav {
   display: grid;
 }
 ul {
-  list-style-type:none;
-  margin:0;
-  padding:0;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 /*Create a horizontal list with spacing*/
 li {
-  display:inline-block;
+  display: inline-block;
   float: left;
   margin-right: 1px;
 }
 /*Style for menu links*/
 li a {
-  display:block;
+  display: block;
   margin-right: 20px;
   height: 50px;
   text-align: center;
@@ -54,17 +54,17 @@ li:hover a {
 .show-menu {
   text-decoration: none;
   color: #fff;
-  background: #FF5035;
+  background: #ff5035;
   text-align: center;
   padding: 10px 0;
   display: none;
 }
 /*Hide checkbox*/
-input[type=checkbox]{
+input[type='checkbox'] {
   display: none;
 }
 /*Show menu when invisible checkbox is checked*/
-input[type=checkbox]:checked ~ #menu{
+input[type='checkbox']:checked ~ #menu {
   display: block;
 }
 </style>

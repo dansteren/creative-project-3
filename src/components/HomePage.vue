@@ -8,12 +8,12 @@
 <script>
 export default {
   name: 'HomePage',
-  data () {
+  data() {
     return {
       imagePath: '/static/images/cloud.jpg'
-    }
+    };
   }
-}
+};
 </script>
 
 <style scoped>
