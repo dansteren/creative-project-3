@@ -1,16 +1,33 @@
 <template>
-  <div class="hero">
-    <h1>Simplify Your Life</h1>
-    <img v-bind:src="imagePath"/>
+  <div class="home-page-container">
+    <h1>Home Page</h1>
+    <editing-profile v-if="editing"></editing-profile>
+    <div v-else>
+      Final Display
+      <p>Hi my name is {{name}}</p>
+    </div>
+    <input type="checkbox" v-model="editing" />
   </div>
 </template>
 
 <script>
+import EditingProfile from '@/components/EditingProfile';
 export default {
   name: 'HomePage',
+  components: { EditingProfile },
   data() {
     return {
-      imagePath: '/static/images/cloud.jpg'
+      editing: true,
+      user: {
+        imageUrl: '',
+        name: '',
+        city: '',
+        state: '',
+        tagline: '',
+        occupation: '',
+        bio: '',
+        websiteUrl: ''
+      }
     };
   }
 };
@@ -20,17 +37,5 @@ export default {
 body {
   padding: 0px;
   margin: 0px;
-}
-.hero {
-  text-align: center;
-}
-h1 {
-  font-size: 2.5em;
-  letter-spacing: 0.2rem;
-  color: #999;
-  margin-bottom: 2px;
-}
-img {
-  width: 100%;
 }
 </style>
