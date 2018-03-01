@@ -1,9 +1,9 @@
 {
-  "name": "vue-webpack",
+  "name": "creative-project-3",
   "version": "1.0.0",
-  "description": "A Vue.js project",
-  "author": "Dan Steren <daniel.d.steren@gmail.com>",
+  "description": "Creative assignment for BYU's CS 260 class",
   "private": true,
+  "repository": "github:dansteren/creative-project-3",
   "scripts": {
     "start": "npm run dev",
     "precommit": "pretty-quick --staged",
