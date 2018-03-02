@@ -1,7 +1,7 @@
 <template>
   <div class="home-page-container">
-    <h1>Home Page</h1>
-    <input type="checkbox" v-model="editing" />
+    <h1>ProfileCreator.com</h1>
+    <div>Make a great profile and impress everyone!</div>
     <editing-profile v-if="editing" :person="user" v-on:finish="update"></editing-profile>
     <div v-else>
       <div id="cardHolder">
@@ -20,6 +20,7 @@
           <p>{{ user.bio }}</p>
         </div>
       </div>
+      <button class="editing-button" @click="continueEditing">Continue Editing...</button>
     </div>
   </div>
 </template>
@@ -49,6 +50,9 @@ export default {
       this.user = user;
       this.editing = false;
     }
+  },
+  continueEditing() {
+    this.editing = !this.editing;
   }
 };
 </script>
@@ -102,5 +106,9 @@ body {
   margin: 15px auto 0px auto;
   text-decoration: none;
   color: black;
+}
+.editing-button {
+  display: block;
+  margin: 16px auto;
 }
 </style>

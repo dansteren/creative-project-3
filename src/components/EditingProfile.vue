@@ -96,7 +96,6 @@ export default {
 
 <style scoped>
 .component-container {
-  border: 1px solid black;
   border-radius: 2px;
   padding: 16px;
   display: flex;
