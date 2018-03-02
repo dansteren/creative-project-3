@@ -2,16 +2,18 @@
   <div class="home-page-container">
     <h1>Home Page</h1>
     <input type="checkbox" v-model="editing" />
-    <editing-profile v-if="editing"></editing-profile>
+    <editing-profile v-if="editing" :person="user" v-on:finish="update"></editing-profile>
     <div v-else>
       <div id="cardHolder">
         <div id="upperHalf">
-          <!-- {{ user.imageUrl }} -->
+          <img :src="user.imageUrl">
           <div id="textHolder">
-            <p>{{ user.name }}</p>
-            <p>{{ user.occupation }} in {{user.city}}, {{user.state}}</p>
+            {{ user.name }}
+            <br/>
+            {{ user.occupation }} in {{user.city}}, {{user.state}}
           </div>
         </div>
+        <hr/>
         <div id="lowerHalf">
           <a :href="user.websiteUrl">Visit my website</a>
           <p>{{ user.tagline }}</p>
@@ -36,11 +38,17 @@ export default {
         occupation: 'Student',
         city: 'Provo',
         state: 'UT',
-        websiteUrl: 'cs260.manuelmarquezse.com',
+        websiteUrl: 'http://cs260.manuelmarquezse.com',
         tagline: 'Computer lover',
         bio: 'Everything is awesome'
       }
     };
+  },
+  methods: {
+    update(user) {
+      this.user = user;
+      this.editing = false;
+    }
   }
 };
 </script>
@@ -60,15 +68,24 @@ body {
 }
 
 #upperHalf {
-  height: 300px;
-  background-image: url('/static/images/cloud.jpg');
-  background-size: cover;
-  /* background-repeat: no-repeat; */
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#upperHalf img {
+  border: 1px solid black;
+  width: 80%;
+  margin: 25px 0px 15px 0px;
+  box-shadow: 0px 1px 5px #616161;
 }
 
 #textHolder {
+  font-family: 'Karma', serif;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 2px;
 }
 
 #lowerHalf {
@@ -82,5 +99,8 @@ body {
   border-style: solid;
   padding: 7px;
   border-radius: 4px;
+  margin: 15px auto 0px auto;
+  text-decoration: none;
+  color: black;
 }
 </style>
