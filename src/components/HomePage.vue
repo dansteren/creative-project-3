@@ -1,7 +1,9 @@
 <template>
   <div class="home-page-container">
+    <div id="bar">
     <h1>ProfileCreator.com</h1>
     <div>Make a great profile and impress everyone!</div>
+    </div>
     <editing-profile v-if="editing" :person="user" v-on:finish="update"></editing-profile>
     <div v-else>
       <div id="cardHolder">
@@ -22,6 +24,9 @@
       </div>
       <button class="editing-button" @click="continueEditing">Continue Editing...</button>
     </div>
+    <footer>
+      <a class="FooterP" href="https://github.com/dansteren/creative-project-3.git">GitHub Repository</a>
+    </footer>
   </div>
 </template>
 
@@ -58,12 +63,27 @@ export default {
 };
 </script>
 
-<style scoped>
-h1 {
-  margin-bottom: 0px;
+<style>
+#app {
+  margin: 0px;
+  padding: 0px;
 }
 body {
   padding: 0px;
+  margin: 0px;
+}
+</style>
+
+<style scoped>
+#bar {
+  background-color: #223a5e;
+  margin: 0px;
+  padding: 10px 0px 10px 25px;
+  box-shadow: 0 4px 2px -2px gray;
+  color: white;
+}
+h1 {
+  margin: 0px;
 }
 
 #cardHolder {
@@ -114,5 +134,22 @@ body {
 .editing-button {
   display: block;
   margin: 16px auto;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: gray;
+  padding: 0px;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  margin-left: 15px;
+  font-family: 'Nunito', sans-serif;
 }
 </style>
