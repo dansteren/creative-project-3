@@ -36,6 +36,7 @@
       <input type="text" v-model="websiteUrl" name="websiteUrl"/>
     </div>
     <button class="submit-button" @click="updateUser">Finish</button>
+    <div v-if="error" id="error-text">{{error}}</div>
   </div>
 </template>
 
@@ -53,13 +54,32 @@ export default {
         tagline: '',
         occupation: '',
         bio: '',
-        websiteUrl: ''
+        websiteUrl: '',
+        error: ''
       };
     }
-    return { ...this.person };
+    return { ...this.person, error: '' };
   },
   methods: {
     updateUser() {
+      if (
+        !this.name ||
+        !this.imageUrl ||
+        !this.city ||
+        !this.state ||
+        !this.tagline ||
+        !this.occupation ||
+        !this.bio ||
+        !this.websiteUrl
+      ) {
+        this.error =
+          'Some fields are missing. Make sure you fill out the whole form.';
+        return;
+      }
+      this.error = '';
+      let urlContainsHttp =
+        this.websiteUrl.includes('http://') ||
+        this.websiteUrl.includes('https://');
       this.$emit('finish', {
         name: this.name,
         imageUrl: this.imageUrl,
@@ -68,7 +88,9 @@ export default {
         tagline: this.tagline,
         occupation: this.occupation,
         bio: this.bio,
-        websiteUrl: this.websiteUrl
+        websiteUrl: urlContainsHttp
+          ? this.websiteUrl
+          : 'http://' + this.websiteUrl
       });
     },
     updatePreview(e) {
@@ -142,5 +164,9 @@ input[type='text'] {
 }
 h1 {
   margin-bottom: 4px;
+}
+#error-text {
+  color: red;
+  margin: 8px;
 }
 </style>
