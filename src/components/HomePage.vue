@@ -49,23 +49,27 @@ export default {
     update(user) {
       this.user = user;
       this.editing = false;
+    },
+    continueEditing() {
+      console.log('hello');
+      this.editing = !this.editing;
     }
-  },
-  continueEditing() {
-    this.editing = !this.editing;
   }
 };
 </script>
 
 <style scoped>
+h1 {
+  margin-bottom: 0px;
+}
 body {
   padding: 0px;
-  margin: 0px;
 }
 
 #cardHolder {
   width: 500px;
   text-align: center;
+  margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
   box-shadow: 0px 1px 5px #616161;
