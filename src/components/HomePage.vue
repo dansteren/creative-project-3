@@ -33,14 +33,14 @@ export default {
     return {
       editing: true,
       user: {
-        imageUrl: '/static/images/cloud.jpg',
-        name: 'Manuel',
-        occupation: 'Student',
-        city: 'Provo',
-        state: 'UT',
-        websiteUrl: 'http://cs260.manuelmarquezse.com',
-        tagline: 'Computer lover',
-        bio: 'Everything is awesome'
+        imageUrl: '',
+        name: '',
+        occupation: '',
+        city: '',
+        state: '',
+        websiteUrl: '',
+        tagline: '',
+        bio: ''
       }
     };
   },
